@@ -32,6 +32,8 @@ public class ApiRequest {
     private Method method;
     private String body;
     private String fullUrl;
+    private String token;
+    private String key;
     private Response response;
 
     private RequestSpecBuilder builder;
@@ -40,6 +42,8 @@ public class ApiRequest {
         this.builder = new RequestSpecBuilder();
 
         this.baseUrl = CONFIGURATIONS.getBaseUrl();
+//        this.token = CONFIGURATIONS.getToken();
+//        this.key = CONFIGURATIONS.getKey();
         this.path = replaceVarsIfPresent(requestModel.getPath());
         this.method = Method.valueOf(requestModel.getMethod());
         this.body = requestModel.getBody();
@@ -68,7 +72,7 @@ public class ApiRequest {
      */
     public void setHeaders(Map<String, String> headers) {
         headers.forEach((k, v) -> {
-            builder.addHeader(k, v);
+            builder.addHeader(k, replaceVarsIfPresent(v));
         });
     }
 
@@ -127,4 +131,5 @@ public class ApiRequest {
         builder.addFilter(new RestAssuredCustomLogger());
     }
 }
+
 

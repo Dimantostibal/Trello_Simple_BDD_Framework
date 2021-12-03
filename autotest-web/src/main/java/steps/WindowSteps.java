@@ -6,6 +6,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.ru.Если;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
+import io.cucumber.java.ru.Пусть;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,7 @@ public class WindowSteps {
      *
      * @param url url
      */
-    @Если("открыть url {string}")
+    @Пусть("открыт url {string}")
     public void open(String url) {
         Selenide.open(url);
         WebDriver driver = Environment.getDriver();
