@@ -240,4 +240,3 @@
       | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
     * отправить запрос
     * статус код 200
-
