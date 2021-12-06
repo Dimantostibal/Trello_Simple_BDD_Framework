@@ -14,11 +14,7 @@ public interface RestConfigurations extends Config {
     @DefaultValue("")
     String getBaseUrl();
 
-//    @Key("token")
-//    @DefaultValue("")
-//    String getToken();
-//
-//    @Key("key")
-//    @DefaultValue("")
-//    String getKey();
+    @Key("Authorization")
+    @DefaultValue("")
+    String getAuthorization();
 }

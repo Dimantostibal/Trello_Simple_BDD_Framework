@@ -16,21 +16,17 @@
   - Переместить карточку в эту колонку
   - Архивировать колонку "Backlog"
   - Отметить пункт в карточке "Выучить методы запросов"
-  - Поставить в карточке эмоджи Палец вверх
+  - Поставить в карточке эмодзи Палец вверх
 
   Сценарий: Работа с рабочим пространством Trello
     #Создать доску "KanbanTool"
-    * создать контекстные переменные
-      | token| ""|
-      | key  | ""                                |
     * сгенерировать переменные
       | name | KanbanTool |
     * создать запрос
       | method | path    | body             |
       | POST   | /boards | createBoard.json |
     * добавить header
-      | Content-Type  | application/json                                     |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -47,8 +43,8 @@
       | method | path   | body            |
       | POST   | /lists | createList.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
+
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -65,8 +61,7 @@
       | method | path   | body            |
       | POST   | /cards | createCard.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -80,8 +75,7 @@
       | method | path                         |
       | POST   | /cards/${idCard}/attachments |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * добавить query параметры
       | name | image                                                                                          |
       | url  | https://upload.wikimedia.org/wikipedia/ru/thumb/4/42/Simpsons_cast.jpg/700px-Simpsons_cast.jpg |
@@ -90,13 +84,12 @@
 
       #Поставить срок выполнения на следующий день
     * сгенерировать переменные
-      | due | 2021-12-04T12:00:00.000Z |
+      | due | 2021-12-07T12:00:00.000Z |
     * создать запрос
       | method | path             | body             |
       | PUT    | /cards/${idCard} | addDeadline.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
 
@@ -107,8 +100,7 @@
       | method | path             | body                |
       | PUT    | /cards/${idCard} | addDescription.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
 
@@ -121,8 +113,7 @@
       | method | path                        | body                 |
       | POST   | /cards/${idCard}/checklists | createChecklist.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -138,8 +129,7 @@
       | method | path                                  | body                       |
       | POST   | /checklists/${idChecklist}/checkItems | createItemOfChecklist.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -152,8 +142,7 @@
       | method | path                                  | body                       |
       | POST   | /checklists/${idChecklist}/checkItems | createItemOfChecklist.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -166,8 +155,7 @@
       | method | path                                                                | body                       |
       | PUT    | /cards/${idCard}/checklist/${idChecklist}/checkItem/${idCheckItem1} | updateItemOfChecklist.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
 
@@ -179,8 +167,7 @@
       | method | path   | body            |
       | POST   | /lists | createList.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -196,8 +183,7 @@
       | method | path             | body            |
       | PUT    | /cards/${idCard} | updateCard.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
     * извлечь данные
@@ -212,8 +198,7 @@
       | method | path               | body            |
       | PUT    | /lists/${idListBL} | updateList.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
 
@@ -224,8 +209,7 @@
       | method | path                                                                | body                       |
       | PUT    | /cards/${idCard}/checklist/${idChecklist}/checkItem/${idCheckItem2} | updateItemOfChecklist.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
 
@@ -236,7 +220,6 @@
       | method | path                             | body               |
       | POST   | cards/${idCard}/actions/comments | createComment.json |
     * добавить header
-      | Content-Type  | application/json                                                                                                                                                                                                                                                                                            |
-      | Authorization | OAuth oauth_consumer_key=${key},oauth_token=${token} |
+      | Content-Type | application/json |
     * отправить запрос
     * статус код 200
